@@ -24,6 +24,16 @@ int missingNumber(vector<int>& nums) {
 //   return sub;
 // }
 
+// int missingNumber(vector<int>& nums) {
+//   int res = nums.size();
+
+//   for (int idx = 0; idx < nums.size(); idx++) {
+//     res ^= idx ^ nums[idx];
+//   }
+  
+//   return res;
+// }
+
 int main(){
   vector<int> v{0,1,2};
   int num = missingNumber(v);
