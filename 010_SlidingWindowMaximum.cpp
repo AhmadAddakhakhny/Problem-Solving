@@ -42,6 +42,79 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     return max_res;
 }
 
+// vector<int> usingQueue(vector<int> &nums, int &k) {
+
+//     deque<int> dq;
+//     // store max index of window
+//     vector<int> ans;
+
+//     // process first window
+//     for (int i = 0; i<k; i++) {
+//         // remove small element on left side - direction of curr to q.front() (right to left)
+//         while (!dq.empty() && nums[dq.back()] < nums[i]) {
+//             // cant remove 1 in window [3,1,2] by use of q.pop()
+//             // thats why we remove from back
+//             dq.pop_back();
+//         }
+//         // insert curr element
+//         dq.push_back(i);
+//     }
+//     // ans for first ans
+//     ans.push_back(nums[dq.front()]);
+
+//     // remaining windows
+//     for (int i = k; i<nums.size(); i++) {
+//         // remove out of range from front
+//         while (!dq.empty() && dq.front() <= i-k) {
+//             dq.pop_front();
+//         }
+//         // remove small element on left side - direction of curr to q.front() (right to left)
+//         while (!dq.empty() && nums[dq.back()] < nums[i]) {
+//             // cant remove 1 in window [3,1,2] by use of q.pop()
+//             // thats why we remove from back
+//             dq.pop_back();
+//         }
+//         // insert curr element
+//         dq.push_back(i);
+//         // ans store
+//         ans.push_back(nums[dq.front()]);
+//     }
+
+//     return ans;
+// }
+
+// vector<int> usingMaxHeap(vector<int> &nums, int k) {
+
+//     vector<int> ans;
+
+//     priority_queue<pair<int, int>> maxHeap; // element, idx
+
+//     // init. - first window
+//     for (int i = 0; i < nums.size() && i < k; i++) {
+//         maxHeap.push({nums[i], i});
+//     }
+//     // store max of first window
+//     ans.push_back(maxHeap.top().first);
+
+//     // process for remaining window
+//     for (int i = k; i < nums.size(); i++) {
+
+//         // remvoe old window maxx
+//         while (!maxHeap.empty() && maxHeap.top().second <= i - k) {
+//             maxHeap.pop();
+//         }
+
+//         // insert new element
+//         maxHeap.push({nums[i], i});
+
+//         // store in ans
+//         ans.push_back(maxHeap.top().first);
+//     }
+
+//     return ans;
+// }
+
+
 int main() {
     vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
     int k = 3;

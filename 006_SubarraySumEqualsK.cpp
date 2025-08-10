@@ -35,3 +35,37 @@ int main(){
 
   return 0;
 }
+
+
+
+// int subarraySum(vector<int>& nums, int k) {
+
+//     int freq = 0, sum = 0;
+//     unordered_map<int,int> prefix_sum;
+//     prefix_sum[0] = 1;
+    
+//     for (int i = 0; i < nums.size(); i++) {
+
+//         sum += nums[i];
+        
+//         if (prefix_sum.count(sum - k)){
+//             freq += prefix_sum[sum - k];
+//         }
+
+//         ++prefix_sum[sum];
+//     }
+
+//     return freq;
+// }
+
+// int main() {
+
+//     vector<int> v{1,1,1};
+//     int k = 2;
+//     // vector<int> v{1,2,3};
+//     // int k = 3;
+
+//     std::cout << "Total No. of Subarrays: " << subarraySum(v,k) << endl;
+
+//     return 0;
+// }
