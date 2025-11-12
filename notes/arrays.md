@@ -10,3 +10,7 @@
 > Similar concept, suffix sum  
 > example array[] = {5,2,7,1,0,3,2}  
 > prefix array[] = {5,7,14,15,15,18,20}  
+
+### Fixed size sliding window
+> Each two consecutive windows have a huge overlap.
+> implementation: 1. build your window_sum in a separate loop, then start a new loop to 

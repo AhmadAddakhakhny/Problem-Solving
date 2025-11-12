@@ -1,3 +1,4 @@
-a.out
-tmp.cpp
 .vscode
+a.out
+main.cpp
+Makefile
