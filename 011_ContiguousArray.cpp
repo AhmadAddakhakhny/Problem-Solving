@@ -63,3 +63,81 @@ int main () {
     cout << "Is output == 6? ans =  " << findMaxLength(nums) << std::endl;
     return 0;
 }
+
+
+// int getLongestOnes(const vector<int> &nums, const int k) {
+//   int length = 0;
+  
+//   for (int start = 0; start < nums.size();start++) {
+//     int cntr = 0;
+//     int current_length = 0;
+//     for (int end = start; end < nums.size(); end++) {
+
+//       if (nums.at(end) == 0) {
+//         if (cntr < k) {
+//           cntr++;
+//         } else {
+//           break;
+//         }
+//       }
+
+//       current_length++;
+//       length = std::max(length, current_length);
+//     }
+//   }
+
+//   return length;
+// }
+
+int getLongestOnes(const vector<int> &nums, const int k) {
+  int length = 0;
+  int cntr = 0;
+  int current_length = 0;
+  
+  for (int start = 0, end = 0; end < nums.size();) {
+    
+    if (nums.at(end) == 0) {
+      if (cntr < k) {
+        cntr++;
+        current_length = end - start + 1;
+        end++;
+      } else {
+        // sherink
+        // adjust length?
+        while(cntr >= k) {
+          if (nums.at(start) == 1) {
+            start++;
+          } else {
+            start++;
+            cntr--;
+            current_length = end - start + 1;
+          }
+        }
+       
+      }
+    } else {
+      current_length = end - start + 1;
+      end++;
+    }
+
+    length = std::max(length, current_length);
+  }
+
+  return length;
+}
+
+int main(){
+  // vector<int> nums = {0,0,0,0,1,1,1,0}; //-> 5
+  // vector<int> nums = {1,1,1,0,0,0,1,1,1,1,0}; // ->6
+  // vector<int> nums = {0,0,0,0,0}; //-> 2
+  vector<int> nums = {1,1,1,1,1}; //-> 5
+
+
+  int k = 2;
+
+  int length = getLongestOnes(nums, k);
+
+  cout << "length: " << length << endl;
+  
+  return 0;
+}
